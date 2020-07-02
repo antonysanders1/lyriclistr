@@ -9,20 +9,21 @@
 </head>
 
 <body>
-    <div class="column" id="left-sidebar">
+    <div class="column" id="left-sidebar-container">
+        <div class="left-sidebar-contained"></div>
         <h1 class="title-text" id="title">LYRIC<br>LISTR</h1>
         <br>
-        <label class="title-text" for=""><strong>BROWSE LYRICS</strong>:</label>
+        <label class="title-text" for=""><strong>BROWSE SONGS</strong>:</label>
         <form action="">
-            <select name="songs" id="songs">
+            <select id="song-select" name="songs" id="songs">
 
             </select>
             <br>
-            <input type="submit" value="SELECT">
+            <input class="left-col-btn" type="submit" value="SELECT">
             <br><br><br>
             <label class="title-text">----- Or -----</label>
             <br><br><br>
-            <button>CREATE NEW LYRICS</button>
+            <button class="left-col-btn">CREATE NEW LYRICS</button>
         </form>
     </div>
     <div class="column" id="main">
