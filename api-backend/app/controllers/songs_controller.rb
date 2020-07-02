@@ -9,7 +9,7 @@ class SongsController < ApplicationController
     def show
        @song = Song.find(params:id)
        
-       render json: @note, status: 200
+       render json: @song, status: 200
     end
 
     def create
