@@ -8,8 +8,7 @@ body {
     height: 100vh;
     display: grid;
     grid-template-columns: 1fr 2fr 1fr;
-    grid-template-rows: 80% auto;
-    grid-template-areas: "left middle right", "left comments comments";
+    grid-template-rows: 75% auto;
 }
 
 #main,
@@ -17,7 +16,7 @@ body {
 #bottom {
     margin-left: 10px;
     margin-top: 10px;
-    padding: 10px;
+    padding: 0 20px 0 20px;
     border-radius: 6px;
 }
 
@@ -34,6 +33,10 @@ body {
 
 #title {
     font-size: 80px;
+    color: black;
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: gold;
+    text-shadow: 3px 3px 0 white;
 }
 
 #main {
