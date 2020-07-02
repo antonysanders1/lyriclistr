@@ -1,0 +1,5 @@
+class SongsAdapter {
+    constructor() {
+
+    }
+}
