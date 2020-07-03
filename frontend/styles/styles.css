@@ -70,7 +70,10 @@ body {
 }
 
 #welcome {
-    display: inline;
+    display: block;
+    padding: 150px 0;
+    text-align: center;
+    vertical-align: center;
 }
 
 #new-form-container,
