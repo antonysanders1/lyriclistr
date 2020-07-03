@@ -4,7 +4,6 @@ class CreateComments < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :body
       t.integer :song_id
-
       t.timestamps
     end
   end

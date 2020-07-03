@@ -1,5 +1,4 @@
 class CommentsController < ApplicationController
-
     def index
         @comments = Comment.all
 
@@ -35,6 +34,4 @@ class CommentsController < ApplicationController
     def comment_params
         params.require(:comment).permit(:name, :body, :song_id)
     end
-
-    
 end
