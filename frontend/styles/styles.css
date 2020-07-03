@@ -69,6 +69,15 @@ body {
     background-color: darkgray;
 }
 
+#welcome {
+    display: inline;
+}
+
+#new-form-container,
+#song {
+    display: none;
+}
+
 #right-sidebar {
     background-color: darkgray;
     margin-right: 10px;

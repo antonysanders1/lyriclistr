@@ -14,7 +14,7 @@
         <h1 class="title-text" id="title">LYRIC<br>LISTR</h1>
         <br>
         <label class="title-text" for=""><strong>BROWSE SONGS</strong>:</label>
-        <form action="">
+        <form class="song-selector-form">
             <select id="song-select" name="songs" id="songs">
 
             </select>
@@ -23,12 +23,28 @@
             <br><br><br>
             <label class="title-text">----- Or -----</label>
             <br><br><br>
-            <button class="left-col-btn">CREATE NEW LYRICS</button>
+            <button class="left-col-btn" id="new-song-btn">CREATE NEW SONG</button>
         </form>
     </div>
     <div class="column" id="main">
-        <h3>Column 2</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <div id="welcome">
+            <h3>Hello! Lets Get you Started.</h3>
+            <p>Select a song to review from the dropdown menu, or create a song of your own!</p>
+        </div>
+        <div id="new-form-container">
+            <button id="cancel-btn">CANCEL</button>
+            <form class="new-song-form">
+                <input type="text" placeholder="Title"><br>
+                <input type="text" placeholder="Artist Name"><br>
+                <textarea rows="4" cols="80" placeholder="Your awesome lyrics here..."></textarea><br>
+                <input type="submit" value="Finished!">
+            </form>
+        </div>
+        <div id="song">
+            <p>The song currently under review will go here</p>
+
+        </div>
+
     </div>
     <div class="column" id="right-sidebar">
         <h3 class="title-text">About</h3>
@@ -41,7 +57,7 @@
 
     </div>
 
-
+    <script src="show.js"></script>
 </body>
 
 </html>
