@@ -12,7 +12,7 @@ function getSong() {
         .then(data => {
             data.forEach(index => {
                 const song = new Song(index)
-                song.SongTitle
+                song.songTitle
             })
         })
 }
