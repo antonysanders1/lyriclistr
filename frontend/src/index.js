@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
     getSong();
-    //createNewSong();
+    //createSong();
     // getComments();
-    //createNewComment();
+    //createComment();
 })
 const service = new ApiAdapter;
 
@@ -10,19 +10,30 @@ const service = new ApiAdapter;
 function getSong() {
     service.getSongs("songs")
         .then(data => {
-            data.forEach(i => {
-                const song = new Song(i)
-                song.SongName
+            data.forEach(index => {
+                const song = new Song(index)
+                song.SongTitle
             })
         })
 }
 
+
+
+
+
+
+
+
+
+
+
+
 function getComment() {
     service.getComments("comments")
         .then(data => {
-            data.forEach(d => {
-                const newComment = new Comment(d)
-                    //newComment.categoryName
+            data.forEach(index => {
+                const comment = new Comment(index)
+                    //comment.
             })
         })
 }

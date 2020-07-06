@@ -6,11 +6,12 @@ class Song {
         this.lyrics = lyrics
         this.comments = []
     }
-    get songName() {
-        const selector = document.getElementById("song-select")
+    get songTitle() {
+        const selector = document.getElementById("song-selector")
         const option = document.createElement("option")
-        option.innerHTML = this.name
-        select.appendChild(option)
-            //return selector
+        option.value = this.id
+        option.innerHTML = this.title
+        selector.append(option)
+        return selector
     }
 }

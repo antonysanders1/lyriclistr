@@ -5,6 +5,7 @@ class ApiAdapter {
 
     getSongs(url) {
         return fetch(`${this.baseUrl}${url}`).then(res => res.json())
+
     }
 
     getComments(url) {
