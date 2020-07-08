@@ -13,7 +13,7 @@ class SongsController < ApplicationController
 
     def create
         @song = Song.create(song_params)
-        if @song.create
+        if @song.valid?
             render json: @song, status: 200
         else
             render json: {message: @song.errors.messages}

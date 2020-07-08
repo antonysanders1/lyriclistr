@@ -8,11 +8,7 @@ class ApiAdapter {
 
     }
 
-    getComments(url) {
-        return fetch(`${this.baseUrl}${url}`).then(res => res.json())
-    }
-
-    createSongs(title, artist, lyrics) {
+    fetchCreateSong(title, artist, lyrics) {
         return fetch(`${this.baseUrl}songs`, {
             method: 'POST',
             headers: {
@@ -23,8 +19,13 @@ class ApiAdapter {
                 title: title,
                 artist: artist,
                 lyrics: lyrics
+
             })
-        }).then(response => response.json())
+        }).then(res => res.json())
+    }
+
+    getComments(url) {
+        return fetch(`${this.baseUrl}${url}`).then(res => res.json())
     }
 
 }

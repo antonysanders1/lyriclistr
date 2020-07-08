@@ -16,8 +16,8 @@
         <label class="title-text" for=""><strong>BROWSE SONGS</strong>:</label>
         <form class="song-selector-form">
             <select id="song-selector" name="songs">
-                <option value="default">Select a Song</option>
-                <option value="this">This Song</option>
+                <option value="default">--Select a Song--</option>
+                
             </select>
             <br>
             <input class="left-col-btn" type="submit" value="SELECT">
@@ -28,21 +28,22 @@
         </form>
     </div>
     <div class="column" id="main">
-        <div id="welcome">
-            <h3>Hello! Lets Get you Started.</h3>
-            <p>Select a song to review from the dropdown menu, or create a song of your own!</p>
-        </div>
-        <div id="new-form-container">
-            <button id="cancel-btn">CANCEL</button>
-            <form class="new-song-form">
-                <input type="text" placeholder="Title"><br>
-                <input type="text" placeholder="Artist Name"><br>
-                <textarea rows="4" cols="80" placeholder="Your awesome lyrics here..."></textarea><br>
-                <input type="submit" value="Finished!">
-            </form>
+        <div id="main-container">
+            <div id="welcome">
+                <h3>Hello! Lets Get you Started.</h3>
+                <p>Select a song to review from the dropdown menu, or create a song of your own!</p>
+            </div>
+            <div id="new-form-container">
+                <button id="cancel-btn">CANCEL</button>
+                <form class="new-song-form" id="new-song">
+                    <input type="text" placeholder="Title"><br>
+                    <input type="text" placeholder="Artist Name"><br>
+                    <textarea rows="4" cols="80" placeholder="Your awesome lyrics here..."></textarea><br>
+                    <input type="submit" value="Finished!" id="submit-btn">
+                </form>
+            </div>
         </div>
         <div id="song">
-            <p>The song currently under review will go here</p>
 
         </div>
 
@@ -58,11 +59,12 @@
 
     </div>
 
-    <script src="show.js"></script>
+
     <script src="src/components/comments.js"></script>
     <script src="src/components/songs.js"></script>
     <script src="src/adapters/api_adapters.js"></script>
     <script src="src/index.js"></script>
+    <script src="show.js"></script>
 </body>
 
 </html>

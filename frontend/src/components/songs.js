@@ -5,13 +5,15 @@ class Song {
         this.artist = artist
         this.lyrics = lyrics
         this.comments = []
+        this.songTitle()
+
     }
-    get songTitle() {
+    songTitle() {
         const selector = document.getElementById("song-selector")
         const option = document.createElement("option")
         option.value = this.id
-        option.innerHTML = this.title
+        option.innerHTML = this.title + " - " + this.artist
         selector.append(option)
-        return selector
+            //return selector
     }
 }

@@ -15,3 +15,9 @@ document.getElementById("cancel-btn").addEventListener("click", function(e) {
     document.getElementById("or").style.display = "inline"
     document.getElementById("cancel-btn").style.display = "none"
 })
+
+// document.getElementById("submit-btn").addEventListener("click", function() {
+//     document.getElementById("main-container").style.display = "none";
+//     document.getElementById("song").style.display = "inline";
+
+// })
