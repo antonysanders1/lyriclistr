@@ -31,12 +31,12 @@ function newSong() {
         document.getElementById("main-container").style.display = "none";
         songTitle.innerHTML = title;
         songArtist.innerHTML = artist;
-        songLyrics.innerHTML = lyrics;
+        songLyrics.innerText = lyrics;
+        songLyrics.setAttribute('id', 'song-lyrics')
         song.appendChild(songTitle)
         song.appendChild(songArtist)
         song.appendChild(songLyrics)
         song.style.display = "inline";
-
     })
 
 }
