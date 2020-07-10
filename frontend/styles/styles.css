@@ -40,6 +40,7 @@ body {
 }
 
 #title {
+    margin-top: -10px;
     font-size: 80px;
     color: black;
     -webkit-text-stroke-width: 3px;
@@ -73,7 +74,11 @@ body {
     display: block;
     padding: 150px 0;
     text-align: center;
-    vertical-align: center;
+}
+
+.input {
+    width: 290px;
+    height: 30px;
 }
 
 #new-form-container,
