@@ -3,8 +3,13 @@ class ApiAdapter {
         this.baseUrl = "http://localhost:3000/"
     }
 
-    getSongs(url) {
+    getSongTitles(url) {
         return fetch(`${this.baseUrl}${url}`).then(res => res.json())
+
+    }
+
+    getSong(id) {
+        return fetch(`${this.baseUrl}songs/${id}`).then(res => res.json())
 
     }
 
