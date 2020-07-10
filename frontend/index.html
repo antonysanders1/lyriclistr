@@ -14,18 +14,18 @@
         <h1 class="title-text" id="title">LYRIC<br>LISTR</h1>
         <br>
         <label class="title-text" for=""><strong>BROWSE SONGS</strong>:</label>
-        <form class="song-selector-form">
-            <select id="song-selector" name="songs">
+        <!-- <form class="song-selector-form" id="song-selector-form"> -->
+        <select id="song-selector" name="songs">
                 <option value="default">--Select a Song--</option>
                 
             </select>
-            <br>
-            <input class="left-col-btn" type="submit" value="SELECT">
-            <br><br><br>
-            <label class="title-text" id="or">----- Or -----</label>
-            <br><br><br>
-            <button class="left-col-btn" id="new-song-btn">CREATE NEW SONG</button>
-        </form>
+        <br>
+        <br>
+        <br>
+        <br>
+        <label class="title-text" id="or">----- Or -----</label>
+        <br><br><br>
+        <button class="left-col-btn" id="new-song-btn">CREATE NEW SONG</button>
     </div>
     <div class="column" id="main">
         <div id="main-container">
@@ -36,14 +36,14 @@
             <div id="new-form-container">
                 <button id="cancel-btn">CANCEL</button>
                 <form class="new-song-form" id="new-song">
-                    <input type="text" placeholder="Title"><br>
-                    <input type="text" placeholder="Artist Name"><br>
-                    <textarea rows="4" cols="80" placeholder="Your awesome lyrics here..."></textarea><br>
-                    <input type="submit" value="Finished!" id="submit-btn">
+                    <input id="input1" class="input" type="text" placeholder="Title">
+                    <input id="input2" class="input" type="text" placeholder="Artist Name"><br>
+                    <textarea id="input3" rows="8" cols="80" placeholder="Your awesome lyrics here..."></textarea><br>
+                    <input class="input" type="submit" value="Finished!" id="submit-btn">
                 </form>
             </div>
         </div>
-        <div id="song">
+        <div id="song-container">
 
         </div>
 
@@ -64,7 +64,7 @@
     <script src="src/components/songs.js"></script>
     <script src="src/adapters/api_adapters.js"></script>
     <script src="src/index.js"></script>
-    <script src="show.js"></script>
+    <script src="show_clear.js"></script>
 </body>
 
 </html>
