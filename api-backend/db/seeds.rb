@@ -1,4 +1,5 @@
 Song.destroy_all
+Comment.destroy_all
 Song.create([
     {title: "Blinding Lights", artist:"The Weekend", lyrics: "Yeah\n\n
         I been tryna call\n
@@ -59,3 +60,9 @@ Song.create([
         Walk away, you know how\n
         Don't start caring about me now"}
 ])
+
+Comment.create([
+    {name: "Rob F", body: "I love this song!!", song_id: 1}, 
+    {name: "Julia S", body: "Ahh I love the Beibs!! His lyrics are always awesome!", song_id: 2}, 
+    {name: "Kristen B", body: "Looooooove!!!", song_id: 3}, 
+    {name: "Tony S", body: "Love dancing to this record! Lyrics are fun!", song_id: 4}])
