@@ -20,7 +20,6 @@ function getSongTitle() {
 
 function songSelect() {
     let selector = document.getElementById('song-selector')
-        //let main = document.getElementById('main')
     let song = document.getElementById("song-container");
     selector.addEventListener('change', function(e) {
         e.preventDefault()
@@ -29,7 +28,6 @@ function songSelect() {
         service.getSong(songId)
             .then(data => {
                 let selectedSong = new Song(data)
-                    //let song = document.createElement('div')
                 if (!!document.getElementById('song-title')) {
                     let previousSongTitle = document.querySelector('h2');
                     let previousSongArtist = document.querySelector('h4');
@@ -61,16 +59,6 @@ function songSelect() {
                     song.append(songTitle, songArtist, songLyrics)
                 }
 
-                // songTitle.innerHTML = selectedSong.title
-                // songTitle.setAttribute('id', 'song-title')
-                // songArtist.innerHTML = selectedSong.artist
-                // songArtist.setAttribute('id', 'song-artist')
-                // songLyrics.innerText = selectedSong.lyrics
-                // songLyrics.setAttribute('id', 'song-lyrics')
-                // song.appendChild(songTitle)
-                // song.appendChild(songArtist)
-                // song.appendChild(songLyrics)
-                //main.appendChild(song)
                 song.style.display = "inline";
             })
 
