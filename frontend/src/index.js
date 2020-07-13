@@ -22,10 +22,6 @@ function songSelect() {
     let selector = document.getElementById('song-selector')
         //let main = document.getElementById('main')
     let song = document.getElementById("song-container");
-    console.log(song)
-    let songTitle = document.createElement('h2');
-    let songArtist = document.createElement('h4');
-    let songLyrics = document.createElement('p');
     selector.addEventListener('change', function(e) {
         e.preventDefault()
         document.getElementById("main-container").style.display = "none";
@@ -34,16 +30,47 @@ function songSelect() {
             .then(data => {
                 let selectedSong = new Song(data)
                     //let song = document.createElement('div')
-                songTitle.innerHTML = selectedSong.title
-                songTitle.setAttribute('id', 'song-title')
-                songArtist.innerHTML = selectedSong.artist
-                songArtist.setAttribute('id', 'song-artist')
-                songLyrics.innerText = selectedSong.lyrics
-                songLyrics.setAttribute('id', 'song-lyrics')
-                song.appendChild(songTitle)
-                song.appendChild(songArtist)
-                song.appendChild(songLyrics)
-                    //main.appendChild(song)
+                if (!!document.getElementById('song-title')) {
+                    let previousSongTitle = document.querySelector('h2');
+                    let previousSongArtist = document.querySelector('h4');
+                    let previousSongLyrics = document.getElementById('song-lyrics');
+                    song.removeChild(previousSongTitle)
+                    song.removeChild(previousSongArtist)
+                    song.removeChild(previousSongLyrics)
+
+                    let songTitle = document.createElement('h2');
+                    let songArtist = document.createElement('h4');
+                    let songLyrics = document.createElement('p');
+                    songTitle.innerHTML = selectedSong.title
+                    songTitle.setAttribute('id', 'song-title')
+                    songArtist.innerHTML = selectedSong.artist
+                    songArtist.setAttribute('id', 'song-artist')
+                    songLyrics.innerText = selectedSong.lyrics
+                    songLyrics.setAttribute('id', 'song-lyrics')
+                    song.append(songTitle, songArtist, songLyrics)
+                } else {
+                    let songTitle = document.createElement('h2');
+                    let songArtist = document.createElement('h4');
+                    let songLyrics = document.createElement('p');
+                    songTitle.innerHTML = selectedSong.title
+                    songTitle.setAttribute('id', 'song-title')
+                    songArtist.innerHTML = selectedSong.artist
+                    songArtist.setAttribute('id', 'song-artist')
+                    songLyrics.innerText = selectedSong.lyrics
+                    songLyrics.setAttribute('id', 'song-lyrics')
+                    song.append(songTitle, songArtist, songLyrics)
+                }
+
+                // songTitle.innerHTML = selectedSong.title
+                // songTitle.setAttribute('id', 'song-title')
+                // songArtist.innerHTML = selectedSong.artist
+                // songArtist.setAttribute('id', 'song-artist')
+                // songLyrics.innerText = selectedSong.lyrics
+                // songLyrics.setAttribute('id', 'song-lyrics')
+                // song.appendChild(songTitle)
+                // song.appendChild(songArtist)
+                // song.appendChild(songLyrics)
+                //main.appendChild(song)
                 song.style.display = "inline";
             })
 
@@ -52,7 +79,7 @@ function songSelect() {
 }
 
 function newSong() {
-    let main = document.getElementById('main')
+    let main = document.getElementById('main-container')
     let form = document.getElementById("new-song");
     let song = document.getElementById('song-container');
     form.addEventListener("submit", function(e) {
@@ -61,7 +88,7 @@ function newSong() {
         const artist = e.target[1].value
         const lyrics = e.target[2].value
         service.fetchCreateSong(title, artist, lyrics).then(data => { let newSong = new Song(data) })
-        document.getElementById("main-container").style.display = "none";
+        main.style.display = "none";
 
         if (!!document.getElementById('song-title')) {
             let previousSongTitle = document.querySelector('h2');
@@ -71,7 +98,6 @@ function newSong() {
             song.removeChild(previousSongArtist)
             song.removeChild(previousSongLyrics)
             let songTitle = document.createElement('h2')
-            songTitle
             let songArtist = document.createElement('h4')
             let songLyrics = document.createElement('p')
             songTitle.innerHTML = title;
