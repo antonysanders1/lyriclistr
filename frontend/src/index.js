@@ -48,13 +48,6 @@ function songSelect() {
 
                     if (selectedSong.comments.length > 0) {
 
-                        // selectedSong.comments.forEach(com => {
-                        //         let comment = document.createElement('li')
-                        //         comment.setAttribute("class", "comment")
-                        //         comment.innerText = com.name + "\n" + com.body
-                        //         comments.appendChild(comment)
-                        //     })
-
                         let container = document.getElementById('comments-container');
                         let comments = document.getElementById('comments');
                         let previousSongComments = document.getElementsByClassName('comment');
