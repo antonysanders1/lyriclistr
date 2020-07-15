@@ -18,14 +18,6 @@
  })
 
  document.getElementById("cancel-btn").addEventListener("click", function(e) {
-     //     let form = document.getElementById("new-form-container");
-     //     let inputs = document.querySelectorAll('input');
      e.preventDefault();
      window.location.reload(true);
-     //     document.getElementById("welcome").style.display = "block";
-     //     inputs.forEach(input => input.value = '')
-     //     form.style.display = "none"
-     //     document.getElementById("new-song-btn").style.display = "inline"
-     //     document.getElementById("or").style.display = "inline"
-     //     document.getElementById("cancel-btn").style.display = "none"
  })

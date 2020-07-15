@@ -46,33 +46,36 @@ function songSelect() {
                     songLyrics.setAttribute('id', 'song-lyrics')
                     song.append(songTitle, songArtist, songLyrics)
 
-                    if (!!document.getElementsByClassName('comment')) {
-                        let container = document.getElementById('comments-container');
-                        let comments = document.getElementById('comments');
-                        let previousSongComments = document.getElementsByClassName('comment');
-                        comments.remove(previousSongComments);
-                        let newComments = document.createElement('ul');
-                        newComments.setAttribute("id", "comments");
+                    if (selectedSong.comments.length > 0) {
+                        console.log("next step")
+                            //     let container = document.getElementById('comments-container');
+                            //     let comments = document.getElementById('comments');
+                            //     let dComment = document.getElementById('default-comment');
+                            //     let previousSongComments = document.getElementsByClassName('comment');
+                            //     comments.remove(dComment, previousSongComments);
+                            //     let newComments = document.createElement('ul');
+                            //     newComments.setAttribute("id", "comments");
+                            //     selectedSong.comments.forEach(com => {
+                            //         let comment = document.createElement('li')
+                            //         comment.setAttribute("class", "comment")
+                            //         comment.innerText = com.name + "\n" + com.body
+                            //         container.appendChild(newComments);
+                            //         newComments.appendChild(comment);
+
+                        //     })
+                    }
+                } else {
+                    let comments = document.getElementById('comments')
+                    if (selectedSong.comments.length > 0) {
+                        let dComment = document.getElementById('default-comment');
+                        comments.removeChild(dComment);
                         selectedSong.comments.forEach(com => {
                             let comment = document.createElement('li')
                             comment.setAttribute("class", "comment")
                             comment.innerText = com.name + "\n" + com.body
-                            container.appendChild(newComments);
-                            newComments.appendChild(comment);
-
+                            comments.appendChild(comment)
                         })
-                    } else {
-
-
                     }
-                } else {
-                    let comments = document.getElementById('comments')
-                    selectedSong.comments.forEach(com => {
-                        let comment = document.createElement('li')
-                        comment.setAttribute("class", "comment")
-                        comment.innerText = com.name + "\n" + com.body
-                        comments.appendChild(comment)
-                    })
 
                     let songTitle = document.createElement('h2');
                     let songArtist = document.createElement('h4');
