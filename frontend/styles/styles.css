@@ -114,3 +114,18 @@ body {
 #comment-form-container {
     display: none;
 }
+
+#comments {
+    list-style-type: none;
+    height: 50%;
+    overflow: hidden;
+    overflow-y: scroll;
+}
+
+.comment {
+    width: 90%;
+    /* border: 2px solid black; */
+    margin-bottom: 2px;
+    padding: 5px;
+    background-color: white;
+}
