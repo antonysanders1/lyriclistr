@@ -47,28 +47,48 @@ function songSelect() {
                     song.append(songTitle, songArtist, songLyrics)
 
                     if (selectedSong.comments.length > 0) {
-                        console.log("next step")
-                            //     let container = document.getElementById('comments-container');
-                            //     let comments = document.getElementById('comments');
-                            //     let dComment = document.getElementById('default-comment');
-                            //     let previousSongComments = document.getElementsByClassName('comment');
-                            //     comments.remove(dComment, previousSongComments);
-                            //     let newComments = document.createElement('ul');
-                            //     newComments.setAttribute("id", "comments");
-                            //     selectedSong.comments.forEach(com => {
-                            //         let comment = document.createElement('li')
-                            //         comment.setAttribute("class", "comment")
-                            //         comment.innerText = com.name + "\n" + com.body
-                            //         container.appendChild(newComments);
-                            //         newComments.appendChild(comment);
 
+                        // selectedSong.comments.forEach(com => {
+                        //         let comment = document.createElement('li')
+                        //         comment.setAttribute("class", "comment")
+                        //         comment.innerText = com.name + "\n" + com.body
+                        //         comments.appendChild(comment)
                         //     })
+
+                        let container = document.getElementById('comments-container');
+                        let comments = document.getElementById('comments');
+                        let previousSongComments = document.getElementsByClassName('comment');
+                        comments.remove(previousSongComments);
+                        let newComments = document.createElement('ul');
+                        newComments.setAttribute("id", "comments");
+                        selectedSong.comments.forEach(com => {
+                            let comment = document.createElement('li')
+                            comment.setAttribute("class", "comment")
+                            comment.innerText = com.name + "\n" + com.body
+                            container.appendChild(newComments);
+                            newComments.appendChild(comment);
+
+                        })
+                    } else {
+                        let container = document.getElementById('comments-container');
+                        let comments = document.getElementById('comments');
+                        let previousSongComments = document.getElementsByClassName('comment');
+                        comments.remove(previousSongComments);
+                        let newComments = document.createElement('ul');
+                        newComments.setAttribute("id", "comments");
+                        let dComment = document.createElement('li');
+                        dComment.setAttribute('id', 'default-comment')
+                        dComment.innerText = 'This song currently has no comments. Leave some feedback...'
+                        container.appendChild(newComments)
+                        newComments.append(dComment);
+
+
                     }
                 } else {
                     let comments = document.getElementById('comments')
                     if (selectedSong.comments.length > 0) {
                         let dComment = document.getElementById('default-comment');
-                        comments.removeChild(dComment);
+                        dComment.style.display = 'none';
                         selectedSong.comments.forEach(com => {
                             let comment = document.createElement('li')
                             comment.setAttribute("class", "comment")
