@@ -1,11 +1,10 @@
 class Song {
-    constructor({ id, title, artist, lyrics }) {
+    constructor({ id, title, artist, lyrics, comments }) {
         this.id = id
         this.title = title
         this.artist = artist
         this.lyrics = lyrics
-        this.comments = []
-
+        this.comments = comments
 
     }
     showSongTitle() {
