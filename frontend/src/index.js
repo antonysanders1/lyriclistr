@@ -2,7 +2,6 @@ document.addEventListener("DOMContentLoaded", function() {
     getSongTitle();
     songSelect();
     newSong();
-    // getComments();
     //createComment();
 })
 
@@ -32,9 +31,33 @@ function songSelect() {
                     let previousSongTitle = document.querySelector('h2');
                     let previousSongArtist = document.querySelector('h4');
                     let previousSongLyrics = document.getElementById('song-lyrics');
+                    //let previousSongComments = document.getElementById('comments');
                     song.removeChild(previousSongTitle)
                     song.removeChild(previousSongArtist)
                     song.removeChild(previousSongLyrics)
+                        //song.removeChild(previousSongComments)
+
+                    let songTitle = document.createElement('h2');
+                    let songArtist = document.createElement('h4');
+                    let songLyrics = document.createElement('p');
+                    //let songComments = document.createElement('ul');
+                    //let comment = document.createElement('li');
+                    songTitle.innerHTML = selectedSong.title
+                    songTitle.setAttribute('id', 'song-title')
+                    songArtist.innerHTML = selectedSong.artist
+                    songArtist.setAttribute('id', 'song-artist')
+                    songLyrics.innerText = selectedSong.lyrics
+                    songLyrics.setAttribute('id', 'song-lyrics')
+                    console.log(selectedSong.comments)
+                    song.append(songTitle, songArtist, songLyrics)
+                } else {
+                    let comments = document.getElementById('comments')
+                    selectedSong.comments.forEach(com => {
+                        let comment = document.createElement('li')
+                        comment.setAttribute("class", "comment")
+                        comment.innerText = com.name + "\n" + com.body
+                        comments.appendChild(comment)
+                    })
 
                     let songTitle = document.createElement('h2');
                     let songArtist = document.createElement('h4');
@@ -46,20 +69,15 @@ function songSelect() {
                     songLyrics.innerText = selectedSong.lyrics
                     songLyrics.setAttribute('id', 'song-lyrics')
                     song.append(songTitle, songArtist, songLyrics)
-                } else {
-                    let songTitle = document.createElement('h2');
-                    let songArtist = document.createElement('h4');
-                    let songLyrics = document.createElement('p');
-                    songTitle.innerHTML = selectedSong.title
-                    songTitle.setAttribute('id', 'song-title')
-                    songArtist.innerHTML = selectedSong.artist
-                    songArtist.setAttribute('id', 'song-artist')
-                    songLyrics.innerText = selectedSong.lyrics
-                    songLyrics.setAttribute('id', 'song-lyrics')
-                    song.append(songTitle, songArtist, songLyrics)
+                    document.getElementById('comment-default').style.display = "none"
+                    document.getElementById('comment-form-container').style.display = "none"
+                    document.getElementById('comments-container').style.display = "inline";
+
                 }
 
                 song.style.display = "inline";
+
+
             })
 
     })
