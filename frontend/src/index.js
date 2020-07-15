@@ -31,25 +31,40 @@ function songSelect() {
                     let previousSongTitle = document.querySelector('h2');
                     let previousSongArtist = document.querySelector('h4');
                     let previousSongLyrics = document.getElementById('song-lyrics');
-                    //let previousSongComments = document.getElementById('comments');
                     song.removeChild(previousSongTitle)
                     song.removeChild(previousSongArtist)
                     song.removeChild(previousSongLyrics)
-                        //song.removeChild(previousSongComments)
 
                     let songTitle = document.createElement('h2');
                     let songArtist = document.createElement('h4');
                     let songLyrics = document.createElement('p');
-                    //let songComments = document.createElement('ul');
-                    //let comment = document.createElement('li');
                     songTitle.innerHTML = selectedSong.title
                     songTitle.setAttribute('id', 'song-title')
                     songArtist.innerHTML = selectedSong.artist
                     songArtist.setAttribute('id', 'song-artist')
                     songLyrics.innerText = selectedSong.lyrics
                     songLyrics.setAttribute('id', 'song-lyrics')
-                    console.log(selectedSong.comments)
                     song.append(songTitle, songArtist, songLyrics)
+
+                    if (!!document.getElementsByClassName('comment')) {
+                        let container = document.getElementById('comments-container');
+                        let comments = document.getElementById('comments');
+                        let previousSongComments = document.getElementsByClassName('comment');
+                        comments.remove(previousSongComments);
+                        let newComments = document.createElement('ul');
+                        newComments.setAttribute("id", "comments");
+                        selectedSong.comments.forEach(com => {
+                            let comment = document.createElement('li')
+                            comment.setAttribute("class", "comment")
+                            comment.innerText = com.name + "\n" + com.body
+                            container.appendChild(newComments);
+                            newComments.appendChild(comment);
+
+                        })
+                    } else {
+
+
+                    }
                 } else {
                     let comments = document.getElementById('comments')
                     selectedSong.comments.forEach(com => {
