@@ -13,7 +13,7 @@ class CommentsController < ApplicationController
 
     def create
         @comment = Comment.create(comment_params)
-        if @song.valid?
+        if @comment.valid?
             render json: @comment, status: 200
         else
             render json: {message: @comment.errors.messages}
