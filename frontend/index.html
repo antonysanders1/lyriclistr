@@ -13,17 +13,18 @@
         <div class="left-sidebar-contained"></div>
         <h1 class="title-text" id="title">LYRIC<br>LISTR</h1>
         <br>
-        <label class="title-text" for=""><strong>BROWSE SONGS</strong>:</label>
-        <!-- <form class="song-selector-form" id="song-selector-form"> -->
-        <select id="song-selector" name="songs">
-                <option value="default">--Select a Song--</option>
-                
-            </select>
-        <br>
-        <br>
-        <br>
-        <br>
-        <label class="title-text" id="or">----- Or -----</label>
+        <div id="browser">
+            <label class="title-text" for="song-selector"><strong>BROWSE SONGS</strong>:</label><br>
+            <select id="song-selector">
+                    <option value="default">--Select a Song--</option>
+                    
+                </select>
+            <br>
+            <br>
+            <br>
+            <br>
+            <label class="title-text" id="or">----- Or -----</label>
+        </div>
         <br><br><br>
         <button class="left-col-btn" id="new-song-btn">CREATE NEW SONG</button>
     </div>
@@ -50,9 +51,12 @@
     </div>
     <div class="column" id="right-sidebar">
         <h3 class="title-text">About</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit...</p>
+        <p id="about"> <strong> Welcome to LyricListr:</strong><br> a one page web app that allows developing songwriters to share their new lyrics snippets they're working on and get feedback from other writers.</p>
         <h3 class="title-text">Instructions</h3>
-        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris...</p>
+        <p id="instructions"> <strong>Browsing</strong> <br> Select a song to view from the provided list. When you're done, browse another. <br><br>
+            <strong>Creating</strong> <br> Select the 'Create New Song' button and fill out the new song form. Once your done click 'finish'. Change your mind and want to return to browsing? Click 'Cancel'. <br><br>
+            <strong>Commenting</strong><br> Afer selecting a song to review, you can leave some helpful feedback or a comment for the witer to read. Have Fun and thank you for using!
+        </p>
     </div>
     <div id="bottom">
         <div id="comment-default">
@@ -61,19 +65,17 @@
 
         </div>
         <div id="comments-container">
-            <button id="add-comment">Give Feedback!</button>
+            <div id="comment-form-container">
+                <form id="new-comment-form">
+                    <input type="text" id="com-name" class="com-input" placeholder="Your Name">
+                    <input type="text" id="com-input" placeholder="Leave a comment...">
+                    <input type="submit" class="com-input" value="Submit">
+                </form>
+
+            </div>
             <ul id="comments">
                 <li id="default-comment">This song currently has no comments. Leave some feedback...</li>
-
             </ul>
-
-        </div>
-        <div id="comment-form-container">
-            <form id="new-comment-form">
-                <input type="text" placeholder="Your Name">
-                <textarea cols="130" rows="3" placeholder="Leave a comment..."></textarea>
-            </form>
-
         </div>
 
     </div>
