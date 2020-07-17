@@ -29,8 +29,19 @@ class ApiAdapter {
         }).then(res => res.json())
     }
 
-    getComments(url) {
-        return fetch(`${this.baseUrl}${url}`).then(res => res.json())
+    fetchCreateComment(name, body, songId) {
+        return fetch(`${this.baseUrl}comments`, {
+            method: 'POST',
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                name: name,
+                body: body,
+                song_id: songId
+            })
+        }).then(res => res.json())
     }
 
 }
