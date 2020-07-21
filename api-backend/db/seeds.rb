@@ -62,7 +62,15 @@ Song.create([
 ])
 
 Comment.create([
-    {name: "Rob F", body: "I love this song!!", song_id: 1}, 
-    {name: "Julia S", body: "Ahh I love the Beibs!! His lyrics are always awesome!", song_id: 2}, 
-    {name: "Kristen B", body: "Looooooove!!!", song_id: 3}, 
-    {name: "Tony S", body: "Love dancing to this record! Lyrics are fun!", song_id: 4}])
+    {name: "Rob F", body: "I love this song!!", song_id: 1},
+    {name: "Alex E", body: "Feels like I'm in the 80's all over again..", song_id: 1}, 
+    {name: "Matt P", body: "Dope!!", song_id: 1}, 
+    {name: "Julia S", body: "Ahh I love the Beibs!! His lyrics are always awesome!", song_id: 2},
+    {name: "Mark P", body: "Fun Song!", song_id: 2},
+    {name: "Kelly W", body: "This kid knows a woman's worth.. super cute!", song_id: 2}, 
+    {name: "Kristen B", body: "Looooooove!!!", song_id: 3},
+    {name: "Ashley F", body: "This will be playing at my next BBQ...", song_id: 3},
+    {name: "Torey L", body: "Right Foot Up, Left Foot Slide!!!!", song_id: 3}, 
+    {name: "Skylar S", body: "Love dancing to this record! Lyrics are fun!", song_id: 4},
+    {name: "Chris D", body: "She sounds upset.. and she should be lol.. Great lyrics!", song_id: 4},
+    {name: "Mike R", body: "Cool", song_id: 4},])
