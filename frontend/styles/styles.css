@@ -136,9 +136,9 @@ body {
 
 #comments {
     list-style-type: none;
-    height: 30%;
-    /* overflow: hidden;
-    overflow-y: scroll; */
+    height: 200px;
+    overflow: hidden;
+    overflow-y: scroll;
 }
 
 #new-comment-form {
