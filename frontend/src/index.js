@@ -145,24 +145,8 @@ function newSong() {
                 songLyrics.innerText = nSong.lyrics;
                 songLyrics.setAttribute('id', 'song-lyrics')
                 song.append(songTitle, songArtist, songLyrics)
+                displayEmptyCommentsSection();
 
-                if (!!document.getElementsByClassName('comment')) {
-                    let commentsContainer = document.getElementById('comments-container');
-                    let comUl = document.getElementById('comments');
-                    let com = document.getElementsByClassName('comment');
-                    comUl.remove(com);
-                    let newComUl = document.createElement('ul');
-                    newComUl.setAttribute("id", 'comments');
-                    let newDefaultCom = document.createElement('li')
-                    newDefaultCom.setAttribute("id", "default-comment")
-                    newDefaultCom.innerText = "This song currently has no comments. Leave some feedback..."
-                    newComUl.appendChild(newDefaultCom)
-                    commentsContainer.appendChild(newComUl)
-                    commentsContainer.style.display = "inline";
-                    document.getElementById('comment-default').style.display = "none";
-                } else {
-                    document.getElementById('comments-container').style.display = "inline";
-                }
 
             } else {
                 let songTitle = document.createElement('h2')
@@ -230,4 +214,24 @@ function newComment() {
         })
     })
 
+}
+
+function displayEmptyCommentsSection() {
+    if (!!document.getElementsByClassName('comment')) {
+        let commentsContainer = document.getElementById('comments-container');
+        let comUl = document.getElementById('comments');
+        let com = document.getElementsByClassName('comment');
+        comUl.remove(com);
+        let newComUl = document.createElement('ul');
+        newComUl.setAttribute("id", 'comments');
+        let newDefaultCom = document.createElement('li')
+        newDefaultCom.setAttribute("id", "default-comment")
+        newDefaultCom.innerText = "This song currently has no comments. Leave some feedback..."
+        newComUl.appendChild(newDefaultCom)
+        commentsContainer.appendChild(newComUl)
+        commentsContainer.style.display = "inline";
+        document.getElementById('comment-default').style.display = "none";
+    } else {
+        document.getElementById('comments-container').style.display = "inline";
+    }
 }
