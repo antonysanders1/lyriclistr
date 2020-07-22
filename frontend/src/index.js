@@ -61,7 +61,7 @@ function songSelect() {
                             comment.setAttribute("class", "comment")
                             comment.innerText = com.name + "\n" + com.body
                             container.appendChild(newComments);
-                            newComments.appendChild(comment);
+                            newComments.prependChild(comment);
 
                         })
                     } else {
@@ -196,7 +196,7 @@ function newComment() {
                 let comment = document.createElement("li")
                 comment.setAttribute('class', 'comment')
                 comment.innerHTML = newCom.name + '<br/>' + newCom.body
-                commentsContainer.append(comment)
+                commentsContainer.insertBefore(comment, commentsContainer.firstElementChild)
                 commentsContainer.style.display = "inline"
                 document.getElementById('com-name').value = ""
                 document.getElementById('com-input').value = ""
@@ -206,7 +206,7 @@ function newComment() {
                 let comment = document.createElement("li")
                 comment.setAttribute('class', 'comment')
                 comment.innerHTML = newCom.name + '<br/>' + newCom.body
-                commentsContainer.append(comment)
+                commentsContainer.insertBefore(comment, commentsContainer.firstElementChild)
                 document.getElementById('com-name').value = ""
                 document.getElementById('com-input').value = ""
 
