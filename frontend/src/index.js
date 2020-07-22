@@ -10,10 +10,11 @@ const service = new ApiAdapter;
 function getSongTitle() {
     service.getSongTitles("songs")
         .then(data => {
-            data.forEach(index => {
-                const song = new Song(index)
-                song.showSongTitle()
-            })
+            data.sort((a, b) => b.id - a.id)
+                .forEach(s => {
+                    const song = new Song(s)
+                    song.showSongTitle()
+                })
         })
 }
 
@@ -27,6 +28,7 @@ function songSelect() {
         service.getSong(songId)
             .then(data => {
                 let selectedSong = new Song(data)
+                selectedSong.comments.sort((a, b) => b.id - a.id)
                 if (!!document.getElementById('song-title')) {
                     let previousSongTitle = document.querySelector('h2');
                     let previousSongArtist = document.querySelector('h4');
