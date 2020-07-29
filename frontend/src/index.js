@@ -37,48 +37,30 @@ function songSelect() {
                     song.removeChild(previousSongArtist)
                     song.removeChild(previousSongLyrics)
 
-                    let songTitle = document.createElement('h2');
-                    let songArtist = document.createElement('h4');
-                    let songLyrics = document.createElement('p');
-                    songTitle.innerHTML = selectedSong.title
-                    songTitle.setAttribute('id', 'song-title')
-                    songArtist.innerHTML = selectedSong.artist
-                    songArtist.setAttribute('id', 'song-artist')
-                    songLyrics.innerText = selectedSong.lyrics
-                    songLyrics.setAttribute('id', 'song-lyrics')
-                    song.append(songTitle, songArtist, songLyrics)
-
+                    let container = document.getElementById('comments-container');
+                    let commentsList = document.getElementById('comments');
+                    let previousSongComment = document.getElementsByClassName('comment');
+                    let newCommentsList = document.createElement('ul');
                     if (selectedSong.comments.length > 0) {
-
-                        let container = document.getElementById('comments-container');
-                        let comments = document.getElementById('comments');
-                        let previousSongComments = document.getElementsByClassName('comment');
-                        comments.remove(previousSongComments);
-                        let newComments = document.createElement('ul');
-                        newComments.setAttribute("id", "comments");
                         selectedSong.comments.forEach(com => {
                             let comment = document.createElement('li')
                             comment.setAttribute("class", "comment")
                             comment.innerText = com.name + "\n" + com.body
-                            container.appendChild(newComments);
-                            newComments.prependChild(comment);
+                            container.appendChild(newCommentsList);
+                            newCommentsList.insertBefore(comment, newCommentsList.firstElementChild);
 
                         })
                     } else {
-                        let container = document.getElementById('comments-container');
-                        let comments = document.getElementById('comments');
-                        let previousSongComments = document.getElementsByClassName('comment');
-                        comments.remove(previousSongComments);
-                        let newComments = document.createElement('ul');
-                        newComments.setAttribute("id", "comments");
                         let dComment = document.createElement('li');
                         dComment.setAttribute('id', 'default-comment')
                         dComment.innerText = 'This song currently has no comments. Leave some feedback...'
-                        container.appendChild(newComments)
-                        newComments.append(dComment);
+                        container.appendChild(newCommentsList)
+                        newCommentsList.appendChild(dComment);
 
 
                     }
+                    commentsList.remove(previousSongComment);
+                    newCommentsList.setAttribute("id", "comments");
                 } else {
                     let comments = document.getElementById('comments')
                     if (selectedSong.comments.length > 0) {
@@ -92,22 +74,21 @@ function songSelect() {
                         })
                     }
 
-                    let songTitle = document.createElement('h2');
-                    let songArtist = document.createElement('h4');
-                    let songLyrics = document.createElement('p');
-                    songTitle.innerHTML = selectedSong.title
-                    songTitle.setAttribute('id', 'song-title')
-                    songArtist.innerHTML = selectedSong.artist
-                    songArtist.setAttribute('id', 'song-artist')
-                    songLyrics.innerText = selectedSong.lyrics
-                    songLyrics.setAttribute('id', 'song-lyrics')
-                    song.append(songTitle, songArtist, songLyrics)
                     document.getElementById('comment-default').style.display = "none"
                         // document.getElementById('comment-form-container').style.display = "none"
                     document.getElementById('comments-container').style.display = "inline";
 
                 }
-
+                let songTitle = document.createElement('h2');
+                let songArtist = document.createElement('h4');
+                let songLyrics = document.createElement('p');
+                songTitle.innerHTML = selectedSong.title
+                songTitle.setAttribute('id', 'song-title')
+                songArtist.innerHTML = selectedSong.artist
+                songArtist.setAttribute('id', 'song-artist')
+                songLyrics.innerText = selectedSong.lyrics
+                songLyrics.setAttribute('id', 'song-lyrics')
+                song.append(songTitle, songArtist, songLyrics)
                 song.style.display = "inline";
 
 
@@ -189,29 +170,18 @@ function newComment() {
         const songId = document.getElementById('song-selector').value
         service.fetchCreateComment(name, body, songId).then(data => {
             let newCom = new Comment(data)
+            let commentsContainer = document.getElementById('comments')
 
             if (!document.getElementsByClassName('comment')) {
-                let commentsContainer = document.getElementById('comments')
-                document.getElementById('default-comment').style.display = 'none'
-                let comment = document.createElement("li")
-                comment.setAttribute('class', 'comment')
-                comment.innerHTML = newCom.name + '<br/>' + newCom.body
-                commentsContainer.insertBefore(comment, commentsContainer.firstElementChild)
                 commentsContainer.style.display = "inline"
-                document.getElementById('com-name').value = ""
-                document.getElementById('com-input').value = ""
-            } else {
-                document.getElementById('default-comment').style.display = 'none'
-                let commentsContainer = document.getElementById('comments')
-                let comment = document.createElement("li")
-                comment.setAttribute('class', 'comment')
-                comment.innerHTML = newCom.name + '<br/>' + newCom.body
-                commentsContainer.insertBefore(comment, commentsContainer.firstElementChild)
-                document.getElementById('com-name').value = ""
-                document.getElementById('com-input').value = ""
-
-
             }
+            document.getElementById('default-comment').style.display = 'none'
+            let comment = document.createElement("li")
+            comment.setAttribute('class', 'comment')
+            comment.innerHTML = newCom.name + '<br/>' + newCom.body
+            commentsContainer.insertBefore(comment, commentsContainer.firstElementChild)
+            document.getElementById('com-name').value = ""
+            document.getElementById('com-input').value = ""
 
         })
     })
