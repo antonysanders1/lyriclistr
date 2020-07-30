@@ -118,40 +118,26 @@ function newSong() {
                 song.removeChild(previousSongTitle)
                 song.removeChild(previousSongArtist)
                 song.removeChild(previousSongLyrics)
-                let songTitle = document.createElement('h2')
-                let songArtist = document.createElement('h4')
-                let songLyrics = document.createElement('p')
-                songTitle.innerHTML = nSong.title;
-                songTitle.setAttribute('id', 'song-title')
-                songArtist.innerHTML = nSong.artist;
-                songArtist.setAttribute('id', 'song-artist')
-                songLyrics.innerText = nSong.lyrics;
-                songLyrics.setAttribute('id', 'song-lyrics')
-                song.append(songTitle, songArtist, songLyrics)
                 displayEmptyCommentsSection();
-
-
             } else {
-                let songTitle = document.createElement('h2')
-                let songArtist = document.createElement('h4')
-                let songLyrics = document.createElement('p')
-                songTitle.innerHTML = nSong.title;
-                songTitle.setAttribute('id', 'song-title')
-                songArtist.innerHTML = nSong.artist;
-                songArtist.setAttribute('id', 'song-artist')
-                songLyrics.innerText = nSong.lyrics;
-                songLyrics.setAttribute('id', 'song-lyrics')
-                song.append(songTitle, songArtist, songLyrics)
-
-
                 document.getElementById('comments-container').style.display = "inline";
                 document.getElementById('comment-default').style.display = "none";
-                // document.getElementById('default-comment').style.display = "inline";
-                //let comments = document.getElementById('comments')
-
             }
+            let songTitle = document.createElement('h2')
+            let songArtist = document.createElement('h4')
+            let songLyrics = document.createElement('p')
+            songTitle.innerHTML = nSong.title;
+            songTitle.setAttribute('id', 'song-title')
+            songArtist.innerHTML = nSong.artist;
+            songArtist.setAttribute('id', 'song-artist')
+            songLyrics.innerText = nSong.lyrics;
+            songLyrics.setAttribute('id', 'song-lyrics')
+            song.append(songTitle, songArtist, songLyrics)
             song.style.display = "inline";
-            document.getElementById('song-selector').style.display = "inline"
+            selector = document.getElementById('song-selector')
+            selector.style.display = "inline"
+            nSong.showSongTitle()
+
 
 
         })

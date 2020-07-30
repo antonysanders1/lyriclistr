@@ -12,7 +12,6 @@ class Song {
         const option = document.createElement("option")
         option.value = this.id
         option.innerHTML = this.title + " - " + this.artist
-
         selector.append(option)
             //return selector
     }
